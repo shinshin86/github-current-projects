@@ -1,0 +1,26 @@
+[
+  {
+    "name": "small-tool",
+    "full_name": "testuser/small-tool",
+    "html_url": "https://github.com/testuser/small-tool",
+    "description": "",
+    "fork": false,
+    "archived": false,
+    "private": false,
+    "language": "",
+    "stargazers_count": 2,
+    "pushed_at": "2025-01-15T10:00:00Z"
+  },
+  {
+    "name": "private-repo",
+    "full_name": "testuser/private-repo",
+    "html_url": "https://github.com/testuser/private-repo",
+    "description": "Should not appear",
+    "fork": false,
+    "archived": false,
+    "private": true,
+    "language": "Go",
+    "stargazers_count": 10,
+    "pushed_at": "2025-01-15T10:00:00Z"
+  }
+]

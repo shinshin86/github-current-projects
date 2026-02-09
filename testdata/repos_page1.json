@@ -1,0 +1,38 @@
+[
+  {
+    "name": "awesome-project",
+    "full_name": "testuser/awesome-project",
+    "html_url": "https://github.com/testuser/awesome-project",
+    "description": "An awesome project",
+    "fork": false,
+    "archived": false,
+    "private": false,
+    "language": "Go",
+    "stargazers_count": 100,
+    "pushed_at": "2025-01-15T10:00:00Z"
+  },
+  {
+    "name": "forked-repo",
+    "full_name": "testuser/forked-repo",
+    "html_url": "https://github.com/testuser/forked-repo",
+    "description": "A forked repo",
+    "fork": true,
+    "archived": false,
+    "private": false,
+    "language": "Python",
+    "stargazers_count": 5,
+    "pushed_at": "2025-01-14T10:00:00Z"
+  },
+  {
+    "name": "archived-repo",
+    "full_name": "testuser/archived-repo",
+    "html_url": "https://github.com/testuser/archived-repo",
+    "description": "An archived repo",
+    "fork": false,
+    "archived": true,
+    "private": false,
+    "language": "Rust",
+    "stargazers_count": 50,
+    "pushed_at": "2024-06-01T10:00:00Z"
+  }
+]
