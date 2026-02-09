@@ -9,14 +9,14 @@ import (
 
 // FilterOptions controls which repositories pass filtering.
 type FilterOptions struct {
-	IncludeForks    bool
-	IncludeArchived bool
-	MinStars        int
-	SinceDays       int
+	IncludeForks       bool
+	IncludeArchived    bool
+	MinStars           int
+	SinceDays          int
 	RequireDescription bool
 	Tags               []string
 	TagsMatchAll       bool
-	Now             time.Time // for testability; zero means use time.Now()
+	Now                time.Time // for testability; zero means use time.Now()
 }
 
 // FilterRepos returns only the repositories that match the filter criteria.

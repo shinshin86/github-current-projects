@@ -34,10 +34,14 @@ func TestFetchAllReposPaginated(t *testing.T) {
 		switch page {
 		case "", "1":
 			w.Header().Set("Link", `<`+serverURL+`/users/testuser/repos?type=owner&per_page=100&page=2>; rel="next"`)
-			w.Write(page1)
+			if _, err := w.Write(page1); err != nil {
+				t.Errorf("writing page1 response: %v", err)
+			}
 		case "2":
 			// No Link header = last page
-			w.Write(page2)
+			if _, err := w.Write(page2); err != nil {
+				t.Errorf("writing page2 response: %v", err)
+			}
 		default:
 			t.Errorf("unexpected page: %s", page)
 			w.WriteHeader(http.StatusBadRequest)
@@ -78,7 +82,9 @@ func TestFetchAllReposAuthHeader(t *testing.T) {
 			t.Errorf("Authorization = %q, want %q", auth, "Bearer my-secret-token")
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte("[]"))
+		if _, err := w.Write([]byte("[]")); err != nil {
+			t.Errorf("writing empty response: %v", err)
+		}
 	})
 
 	server := httptest.NewServer(mux)
@@ -102,7 +108,9 @@ func TestFetchAllReposNoToken(t *testing.T) {
 			t.Errorf("should not have Authorization header without token, got %q", auth)
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte("[]"))
+		if _, err := w.Write([]byte("[]")); err != nil {
+			t.Errorf("writing empty response: %v", err)
+		}
 	})
 
 	server := httptest.NewServer(mux)
@@ -119,7 +127,9 @@ func TestFetchAllReposAPIError(t *testing.T) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/users/testuser/repos", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte(`{"message":"Not Found"}`))
+		if _, err := w.Write([]byte(`{"message":"Not Found"}`)); err != nil {
+			t.Errorf("writing error response: %v", err)
+		}
 	})
 
 	server := httptest.NewServer(mux)

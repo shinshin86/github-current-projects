@@ -11,23 +11,23 @@ import (
 
 // Options holds all CLI options.
 type Options struct {
-	User            string
-	Token           string
-	Top             int
-	MinStars        int
-	IncludeForks    bool
-	IncludeArchived bool
-	SinceDays       int
+	User               string
+	Token              string
+	Top                int
+	MinStars           int
+	IncludeForks       bool
+	IncludeArchived    bool
+	SinceDays          int
 	RequireDescription bool
 	Tags               []string
 	TagMatch           string
 	Sort               string
-	ReadmePath      string
-	OutPath         string
-	Marker          string
-	Format          string
-	BaseURL         string
-	AppendIfMissing bool
+	ReadmePath         string
+	OutPath            string
+	Marker             string
+	Format             string
+	BaseURL            string
+	AppendIfMissing    bool
 }
 
 // ParseArgs parses command-line arguments.

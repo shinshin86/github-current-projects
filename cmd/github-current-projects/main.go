@@ -51,10 +51,10 @@ func run(args []string) int {
 
 	// Filter
 	filtered := core.FilterRepos(repos, core.FilterOptions{
-		IncludeForks:    opts.IncludeForks,
-		IncludeArchived: opts.IncludeArchived,
-		MinStars:        opts.MinStars,
-		SinceDays:       opts.SinceDays,
+		IncludeForks:       opts.IncludeForks,
+		IncludeArchived:    opts.IncludeArchived,
+		MinStars:           opts.MinStars,
+		SinceDays:          opts.SinceDays,
 		RequireDescription: opts.RequireDescription,
 		Tags:               opts.Tags,
 		TagsMatchAll:       opts.TagMatch == "all",

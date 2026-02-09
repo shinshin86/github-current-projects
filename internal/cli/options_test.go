@@ -167,8 +167,8 @@ func TestParseArgsInsecureBaseURLWithToken(t *testing.T) {
 
 func TestValidateOptionsAllowsLocalhostHTTP(t *testing.T) {
 	opts := &Options{
-		User:   "u",
-		Format: "markdown",
+		User:    "u",
+		Format:  "markdown",
 		BaseURL: "http://localhost:8080",
 	}
 	if err := ValidateOptions(opts, "token"); err != nil {

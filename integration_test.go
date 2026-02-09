@@ -32,9 +32,13 @@ func TestEndToEndMarkdown(t *testing.T) {
 		switch page {
 		case "", "1":
 			w.Header().Set("Link", `<`+serverURL+`/users/testuser/repos?type=owner&per_page=100&page=2>; rel="next"`)
-			w.Write(page1)
+			if _, err := w.Write(page1); err != nil {
+				t.Errorf("writing page1 response: %v", err)
+			}
 		case "2":
-			w.Write(page2)
+			if _, err := w.Write(page2); err != nil {
+				t.Errorf("writing page2 response: %v", err)
+			}
 		}
 	})
 
@@ -105,7 +109,9 @@ func TestEndToEndJSON(t *testing.T) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/users/testuser/repos", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(page1)
+		if _, err := w.Write(page1); err != nil {
+			t.Errorf("writing page1 response: %v", err)
+		}
 	})
 
 	server := httptest.NewServer(mux)
@@ -145,7 +151,9 @@ func TestEndToEndPatchREADME(t *testing.T) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/users/testuser/repos", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(page1)
+		if _, err := w.Write(page1); err != nil {
+			t.Errorf("writing page1 response: %v", err)
+		}
 	})
 
 	server := httptest.NewServer(mux)
